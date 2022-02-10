@@ -70,7 +70,7 @@ then
 	# Apply sysctl params without reboot
 	sudo sysctl --system
 
-	sudo apt-get install ca-certificates curl gnupg lsb-release
+	sudo apt-get install -y ca-certificates curl gnupg lsb-release
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
 	echo \
@@ -78,7 +78,7 @@ then
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 	# (Install containerd)
-	sudo apt-get update && sudo apt-get install docker-ce docker-ce-cli containerd.io
+	sudo apt-get update && sudo apt-get -y install docker-ce docker-ce-cli containerd.io
 	# Configure containerd
 	sudo mkdir -p /etc/containerd
 	containerd config default | sudo tee /etc/containerd/config.toml
