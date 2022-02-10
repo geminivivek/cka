@@ -49,7 +49,7 @@ echo printing MYOS $MYOS
 if [ $MYOS = "Ubuntu" ]
 then
         ### Install utilities
-        sudo apt-get install -y vim bash-completion jq
+        sudo apt-get install -y git wget curl bash-completion jq tmux vim
 	
         ### setting up container runtime prereq
 	cat <<- EOF | sudo tee /etc/modules-load.d/containerd.conf
