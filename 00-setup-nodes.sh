@@ -1,4 +1,4 @@
-for i in worker-01 worker-02 worker-03
+for i in control02 control03 worker01 worker02 worker03
 do
 	scp * $i:~
 done
