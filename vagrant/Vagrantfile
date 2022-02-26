@@ -82,9 +82,9 @@ sudo systemctl restart containerd
 $setup_user_enviornment = <<-SCRIPT
 sudo su - vagrant
 kubectl completion bash >> ~/.bashrc
-echo \"alias k=kubectl\" >> ~/.bashrc
+echo "alias k=kubectl" >> ~/.bashrc
 complete -F __start_kubectl k
-echo \"autocmd FileType yaml setlocal ai ts=2 sw=2 sts=2 et\" > ~/.vimrc
+echo "autocmd FileType yaml setlocal ai ts=2 sw=2 sts=2 et" > ~/.vimrc
 exit
 SCRIPT
 ######################################################################################################
@@ -132,6 +132,7 @@ config.vm.provision "install_basic_pkg", type: "shell", :path => "ubuntu/install
 config.vm.provision "install-containerd-prereq", type: "shell", :path => "ubuntu/install-containerd-prereq.sh"
 config.vm.provision "install-containerd", type: "shell", :path => "ubuntu/install-containerd.sh"
 config.vm.provision "install-kubeadm-kubectl-kubelet", type: "shell", :path => "ubuntu/install-kubeadm-kubectl-kubelet.sh"
+config.vm.provision "setup-user-enviornment", type: "shell", :path => "ubuntu/setup-user-enviornment.sh"
 #---------------------------------------------------------------------
 
 #---------------------------------------------------------------------
